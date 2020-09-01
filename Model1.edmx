@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LoginModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Login.dbo.Kullanicilar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Kullanicilar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Login.dbo.Markalar' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Markalar">
+          <Property Name="Iphone" Type="nchar" MaxLength="10" />
+          <Property Name="Samsung" Type="nchar" MaxLength="10" />
+          <Property Name="QQ" Type="nchar" MaxLength="10" />
+          <Property Name="SUB" Type="nchar" MaxLength="10" />
+          <Property Name="LAP" Type="nchar" MaxLength="10" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Login.dbo.ModelsOfIphone' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ModelsOfIphone">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IphoneModels" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Login.dbo.Sikayetler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Sikayetler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Marka" Type="nvarchar" MaxLength="50" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sikayet" Type="nvarchar" MaxLength="50" />
+          <Property Name="Yorum" Type="nvarchar(max)" />
+          <Property Name="Durum" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tarih" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="LoginModel1StoreContainer">
+          <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Kullanicilar].[Id] AS [Id], 
+[Kullanicilar].[Name] AS [Name], 
+[Kullanicilar].[Email] AS [Email], 
+[Kullanicilar].[Password] AS [Password]
+FROM [dbo].[Kullanicilar] AS [Kullanicilar]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ModelsOfIphone" EntityType="Self.ModelsOfIphone" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[ModelsOfIphone].[Id] AS [Id], 
+[ModelsOfIphone].[IphoneModels] AS [IphoneModels]
+FROM [dbo].[ModelsOfIphone] AS [ModelsOfIphone]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Sikayetler" EntityType="Self.Sikayetler" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Sikayetler].[Id] AS [Id], 
+[Sikayetler].[UserId] AS [UserId], 
+[Sikayetler].[Marka] AS [Marka], 
+[Sikayetler].[Model] AS [Model], 
+[Sikayetler].[Sikayet] AS [Sikayet], 
+[Sikayetler].[Yorum] AS [Yorum], 
+[Sikayetler].[Durum] AS [Durum], 
+[Sikayetler].[Tarih] AS [Tarih]
+FROM [dbo].[Sikayetler] AS [Sikayetler]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LoginModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Kullanicilar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ModelsOfIphone">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IphoneModels" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Sikayetler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Marka" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sikayet" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Yorum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Durum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="LoginEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" />
+          <EntitySet Name="ModelsOfIphone" EntityType="Self.ModelsOfIphone" />
+          <EntitySet Name="Sikayetler" EntityType="Self.Sikayetler" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LoginModel1StoreContainer" CdmEntityContainer="LoginEntities3">
+          <EntitySetMapping Name="Kullanicilar">
+            <EntityTypeMapping TypeName="LoginModel1.Kullanicilar">
+              <MappingFragment StoreEntitySet="Kullanicilar">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ModelsOfIphone">
+            <EntityTypeMapping TypeName="LoginModel1.ModelsOfIphone">
+              <MappingFragment StoreEntitySet="ModelsOfIphone">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IphoneModels" ColumnName="IphoneModels" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sikayetler">
+            <EntityTypeMapping TypeName="LoginModel1.Sikayetler">
+              <MappingFragment StoreEntitySet="Sikayetler">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Marka" ColumnName="Marka" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Sikayet" ColumnName="Sikayet" />
+                <ScalarProperty Name="Yorum" ColumnName="Yorum" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

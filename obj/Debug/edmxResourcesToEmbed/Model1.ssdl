@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LoginModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Login.dbo.Kullanicilar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Kullanicilar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Login.dbo.Markalar' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Markalar">
+          <Property Name="Iphone" Type="nchar" MaxLength="10" />
+          <Property Name="Samsung" Type="nchar" MaxLength="10" />
+          <Property Name="QQ" Type="nchar" MaxLength="10" />
+          <Property Name="SUB" Type="nchar" MaxLength="10" />
+          <Property Name="LAP" Type="nchar" MaxLength="10" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Login.dbo.ModelsOfIphone' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ModelsOfIphone">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IphoneModels" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Login.dbo.Sikayetler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Sikayetler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="Marka" Type="nvarchar" MaxLength="50" />
+    <Property Name="Model" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sikayet" Type="nvarchar" MaxLength="50" />
+    <Property Name="Yorum" Type="nvarchar(max)" />
+    <Property Name="Durum" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tarih" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="LoginModel1StoreContainer">
+    <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Kullanicilar].[Id] AS [Id], 
+[Kullanicilar].[Name] AS [Name], 
+[Kullanicilar].[Email] AS [Email], 
+[Kullanicilar].[Password] AS [Password]
+FROM [dbo].[Kullanicilar] AS [Kullanicilar]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ModelsOfIphone" EntityType="Self.ModelsOfIphone" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ModelsOfIphone].[Id] AS [Id], 
+[ModelsOfIphone].[IphoneModels] AS [IphoneModels]
+FROM [dbo].[ModelsOfIphone] AS [ModelsOfIphone]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Sikayetler" EntityType="Self.Sikayetler" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Sikayetler].[Id] AS [Id], 
+[Sikayetler].[UserId] AS [UserId], 
+[Sikayetler].[Marka] AS [Marka], 
+[Sikayetler].[Model] AS [Model], 
+[Sikayetler].[Sikayet] AS [Sikayet], 
+[Sikayetler].[Yorum] AS [Yorum], 
+[Sikayetler].[Durum] AS [Durum], 
+[Sikayetler].[Tarih] AS [Tarih]
+FROM [dbo].[Sikayetler] AS [Sikayetler]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

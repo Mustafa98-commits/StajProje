@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LoginModel1StoreContainer" CdmEntityContainer="LoginEntities3">
+    <EntitySetMapping Name="Kullanicilar">
+      <EntityTypeMapping TypeName="LoginModel1.Kullanicilar">
+        <MappingFragment StoreEntitySet="Kullanicilar">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ModelsOfIphone">
+      <EntityTypeMapping TypeName="LoginModel1.ModelsOfIphone">
+        <MappingFragment StoreEntitySet="ModelsOfIphone">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IphoneModels" ColumnName="IphoneModels" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sikayetler">
+      <EntityTypeMapping TypeName="LoginModel1.Sikayetler">
+        <MappingFragment StoreEntitySet="Sikayetler">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Marka" ColumnName="Marka" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Sikayet" ColumnName="Sikayet" />
+          <ScalarProperty Name="Yorum" ColumnName="Yorum" />
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
